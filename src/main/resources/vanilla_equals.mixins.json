@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.bconlon.vanillaequals.mixin.mixins",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "vanilla_equals.refmap.json",
+  "mixins": [
+
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
