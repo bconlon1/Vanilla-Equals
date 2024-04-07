@@ -1,0 +1,12 @@
+{
+  "pack": {
+    "description": {
+      "translate": "pack.vanilla_equals.mod.description"
+    },
+    "pack_format": 26,
+    "supported_formats": [
+      0,
+      2147483647
+    ]
+  }
+}

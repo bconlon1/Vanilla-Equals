@@ -1,5 +1,7 @@
 package com.bconlon.vanillaequals;
 
+import com.bconlon.vanillaequals.blocks.EqualsPaintingVariants;
+import com.bconlon.vanillaequals.data.EqualsData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.DetectedVersion;
 import net.minecraft.data.DataGenerator;
@@ -13,6 +15,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 import java.util.Optional;
@@ -23,17 +26,14 @@ public class VanillaEquals {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public VanillaEquals(IEventBus bus, Dist dist) {
-        bus.addListener(this::dataSetup);
-    }
+        bus.addListener(EqualsData::dataSetup);
 
-    public void dataSetup(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput packOutput = generator.getPackOutput();
+        DeferredRegister<?>[] registers = {
+                EqualsPaintingVariants.PAINTINGS
+        };
 
-        // pack.mcmeta
-        generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(
-                Component.translatable("pack.vanilla_equals.mod.description"),
-                DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
-                Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
+        for (DeferredRegister<?> register : registers) {
+            register.register(bus);
+        }
     }
 }
