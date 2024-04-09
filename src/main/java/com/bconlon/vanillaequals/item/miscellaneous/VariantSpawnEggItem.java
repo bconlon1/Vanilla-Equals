@@ -2,8 +2,6 @@ package com.bconlon.vanillaequals.item.miscellaneous;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
-import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
-import com.bconlon.vanillaequals.entity.passive.CowVariant;
 import com.bconlon.vanillaequals.entity.passive.Variant;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,7 +23,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Spawner;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;

@@ -1,6 +1,5 @@
 package com.bconlon.vanillaequals.attachment;
 
-import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.entity.passive.Variant;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

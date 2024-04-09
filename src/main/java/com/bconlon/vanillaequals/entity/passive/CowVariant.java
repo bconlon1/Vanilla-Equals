@@ -9,7 +9,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.biome.Biome;
 
-import java.util.Locale;
 import java.util.function.Function;
 
 public enum CowVariant implements Variant { //todo balancing

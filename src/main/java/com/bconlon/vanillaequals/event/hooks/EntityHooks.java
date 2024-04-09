@@ -1,6 +1,5 @@
 package com.bconlon.vanillaequals.event.hooks;
 
-import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
 import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
 import com.bconlon.vanillaequals.entity.passive.CowVariant;

@@ -1,10 +1,8 @@
 package com.bconlon.vanillaequals.data.generators;
 
-import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.data.providers.EqualsItemModelProvider;
 import com.bconlon.vanillaequals.item.EqualsItems;
 import net.minecraft.data.PackOutput;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class EqualsItemModelData extends EqualsItemModelProvider {
