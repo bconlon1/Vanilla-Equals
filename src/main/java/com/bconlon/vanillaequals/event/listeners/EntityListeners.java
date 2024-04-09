@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -22,9 +23,11 @@ public class EntityListeners {
         double y = event.getY();
         double z = event.getZ();
         MobSpawnType spawnType = event.getSpawnType();
+        SpawnGroupData spawnGroupData = event.getSpawnData();
         CompoundTag tag = event.getSpawnTag();
-        EntityHooks.chooseMobVariant(mob, level, x, y, z, spawnType);
         EntityHooks.spawnEggDetermineVariant(mob, spawnType, tag);
+        SpawnGroupData newGroupData = EntityHooks.chooseMobVariant(mob, level, x, y, z, spawnType, spawnGroupData);
+        event.setSpawnData(newGroupData);
     }
 
     @SubscribeEvent
