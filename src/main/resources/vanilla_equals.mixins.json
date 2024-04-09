@@ -5,9 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "vanilla_equals.refmap.json",
   "mixins": [
-    "client.CowRendererMixin"
+    "common.BlockStateBaseMixin",
+    "common.TallGrassBlockMixin"
   ],
   "client": [
+    "client.CowRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
