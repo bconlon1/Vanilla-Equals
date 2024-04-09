@@ -1,7 +1,10 @@
 package com.bconlon.vanillaequals;
 
+import com.bconlon.vanillaequals.attachment.EqualsAttachments;
 import com.bconlon.vanillaequals.blocks.EqualsPaintingVariants;
 import com.bconlon.vanillaequals.data.EqualsData;
+import com.bconlon.vanillaequals.item.EqualsItems;
+import com.bconlon.vanillaequals.network.EqualsPackets;
 import com.mojang.logging.LogUtils;
 import net.minecraft.DetectedVersion;
 import net.minecraft.data.DataGenerator;
@@ -27,9 +30,12 @@ public class VanillaEquals {
 
     public VanillaEquals(IEventBus bus, Dist dist) {
         bus.addListener(EqualsData::dataSetup);
+        bus.addListener(EqualsPackets::packetSetup);
 
         DeferredRegister<?>[] registers = {
-                EqualsPaintingVariants.PAINTINGS
+                EqualsItems.ITEMS,
+                EqualsPaintingVariants.PAINTINGS,
+                EqualsAttachments.ATTACHMENTS
         };
 
         for (DeferredRegister<?> register : registers) {

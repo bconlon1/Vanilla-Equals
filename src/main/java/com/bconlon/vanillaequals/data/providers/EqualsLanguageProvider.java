@@ -16,4 +16,8 @@ public abstract class EqualsLanguageProvider extends LanguageProvider {
     public void addPaintingAuthor(String key, String name) {
         this.add("painting." + VanillaEquals.MODID + "." + key + ".author", name);
     }
+
+    public void addPackDescription(String packName, String description) {
+        this.add("pack." + VanillaEquals.MODID + "." + packName + ".description", description);
+    }
 }

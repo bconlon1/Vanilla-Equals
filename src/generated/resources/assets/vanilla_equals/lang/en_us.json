@@ -1,4 +1,12 @@
 {
+  "item.vanilla_equals.albino_cow_spawn_egg": "Albino Cow Spawn Egg",
+  "item.vanilla_equals.ashen_cow_spawn_egg": "Ashen Cow Spawn Egg",
+  "item.vanilla_equals.cookie_cow_spawn_egg": "Cookie Cow Spawn Egg",
+  "item.vanilla_equals.cream_cow_spawn_egg": "Cream Cow Spawn Egg",
+  "item.vanilla_equals.dairy_cow_spawn_egg": "Dairy Cow Spawn Egg",
+  "item.vanilla_equals.pinto_cow_spawn_egg": "Pinto Cow Spawn Egg",
+  "item.vanilla_equals.sunset_cow_spawn_egg": "Sunset Cow Spawn Egg",
+  "pack.vanilla_equals.mod.description": "Vanilla Equals Resources",
   "painting.vanilla_equals.makrill.author": "Kristoffer Zetterstrand",
   "painting.vanilla_equals.makrill.title": "Makrill"
 }

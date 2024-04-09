@@ -1,6 +1,8 @@
 package com.bconlon.vanillaequals.data;
 
+import com.bconlon.vanillaequals.data.generators.EqualsItemModelData;
 import com.bconlon.vanillaequals.data.generators.EqualsLanguageData;
+import com.bconlon.vanillaequals.data.generators.tags.EqualsBiomeTagData;
 import com.bconlon.vanillaequals.data.generators.tags.EqualsPaintingVariantTagData;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
@@ -25,10 +27,12 @@ public class EqualsData {
         PackOutput packOutput = generator.getPackOutput();
 
         // Client Data
+        generator.addProvider(event.includeClient(), new EqualsItemModelData(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new EqualsLanguageData(packOutput));
 
         // Server Data
         // Tags
+        generator.addProvider(event.includeServer(), new EqualsBiomeTagData(packOutput, lookupProvider, fileHelper));
         generator.addProvider(event.includeServer(), new EqualsPaintingVariantTagData(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta
