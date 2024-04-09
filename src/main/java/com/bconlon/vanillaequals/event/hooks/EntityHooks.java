@@ -1,6 +1,5 @@
 package com.bconlon.vanillaequals.event.hooks;
 
-import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
 import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
 import com.bconlon.vanillaequals.entity.passive.CowVariant;
@@ -43,11 +42,9 @@ public class EntityHooks {
             Holder<Biome> biome = level.getBiome(pos);
             Variant variant = null;
             if (mob.getType() == EntityType.COW) { //todo switch case
-                VanillaEquals.LOGGER.info(String.valueOf(pos));
                 variant = CowVariant.selectVariant(level.getRandom(), biome);
             }
             if (variant != null) {
-                VanillaEquals.LOGGER.info(variant.getSerializedName());
                 if (spawnGroupData instanceof VariantGroupData variantGroupData) {
                     variant = variantGroupData.variant;
                 } else {
