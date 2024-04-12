@@ -12,6 +12,12 @@ public class EqualsLanguageData extends EqualsLanguageProvider {
     @Override
     protected void addTranslations() {
         // Items
+        this.addItem(EqualsItems.AMBER_CHICKEN_SPAWN_EGG, "Amber Chicken Spawn Egg");
+        this.addItem(EqualsItems.BRONZED_CHICKEN_SPAWN_EGG, "Bronzed Chicken Spawn Egg");
+        this.addItem(EqualsItems.GOLD_CRESTED_CHICKEN_SPAWN_EGG, "Gold Crested Chicken Spawn Egg");
+        this.addItem(EqualsItems.MIDNIGHT_CHICKEN_SPAWN_EGG, "Midnight Chicken Spawn Egg");
+        this.addItem(EqualsItems.SKEWBALD_CHICKEN_SPAWN_EGG, "Skewbald Chicken Spawn Egg");
+        this.addItem(EqualsItems.STORMY_CHICKEN_SPAWN_EGG, "Stormy Chicken Spawn Egg");
         this.addItem(EqualsItems.ALBINO_COW_SPAWN_EGG, "Albino Cow Spawn Egg");
         this.addItem(EqualsItems.ASHEN_COW_SPAWN_EGG, "Ashen Cow Spawn Egg");
         this.addItem(EqualsItems.COOKIE_COW_SPAWN_EGG, "Cookie Cow Spawn Egg");

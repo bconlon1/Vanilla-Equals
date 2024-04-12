@@ -1,9 +1,15 @@
-// 1.20.4	2024-04-08T14:01:34.1752374	Tags for minecraft:worldgen/biome mod id vanilla_equals
+// 1.20.4	2024-04-12T15:23:06.4358817	Tags for minecraft:worldgen/biome mod id vanilla_equals
 a04b18d3c9ab14133e9701f42f7c904eccd142be data/vanilla_equals/tags/worldgen/biome/spawns_albino_cow.json
 a04b18d3c9ab14133e9701f42f7c904eccd142be data/vanilla_equals/tags/worldgen/biome/spawns_ashen_cow.json
+b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_bronzed_chicken.json
 a04b18d3c9ab14133e9701f42f7c904eccd142be data/vanilla_equals/tags/worldgen/biome/spawns_cookie_cow.json
 832581beee9dcc935e17a4bf4291e980990d257a data/vanilla_equals/tags/worldgen/biome/spawns_cream_cow.json
 b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_dairy_cow.json
+b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_default_chicken.json
 b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_default_cow.json
+b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_gold_crested_chicken.json
+b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_midnight_chicken.json
 2aa7fa6d67049834f0b76e5012ab854bdcf64e23 data/vanilla_equals/tags/worldgen/biome/spawns_pinto_cow.json
+b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_skewbald_chicken.json
+b020f6cdcd2d955793278b2f89a178a1d31e599a data/vanilla_equals/tags/worldgen/biome/spawns_stormy_chicken.json
 2aa7fa6d67049834f0b76e5012ab854bdcf64e23 data/vanilla_equals/tags/worldgen/biome/spawns_sunset_cow.json

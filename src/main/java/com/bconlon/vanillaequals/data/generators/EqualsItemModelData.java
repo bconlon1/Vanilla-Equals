@@ -12,6 +12,12 @@ public class EqualsItemModelData extends EqualsItemModelProvider {
 
     @Override
     protected void registerModels() {
+        this.eggItem(EqualsItems.AMBER_CHICKEN_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.BRONZED_CHICKEN_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.GOLD_CRESTED_CHICKEN_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.MIDNIGHT_CHICKEN_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.SKEWBALD_CHICKEN_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.STORMY_CHICKEN_SPAWN_EGG.get());
         this.eggItem(EqualsItems.ALBINO_COW_SPAWN_EGG.get());
         this.eggItem(EqualsItems.ASHEN_COW_SPAWN_EGG.get());
         this.eggItem(EqualsItems.COOKIE_COW_SPAWN_EGG.get());

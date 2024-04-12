@@ -19,6 +19,12 @@ public class EqualsBiomeTagData extends BiomeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.tag(EqualsTags.Biomes.SPAWNS_DEFAULT_CHICKEN).addTag(BiomeTags.IS_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_BRONZED_CHICKEN).addTag(BiomeTags.IS_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_GOLD_CRESTED_CHICKEN).addTag(BiomeTags.IS_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_MIDNIGHT_CHICKEN).addTag(BiomeTags.IS_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_SKEWBALD_CHICKEN).addTag(BiomeTags.IS_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_STORMY_CHICKEN).addTag(BiomeTags.IS_OVERWORLD);
         this.tag(EqualsTags.Biomes.SPAWNS_DEFAULT_COW).addTag(BiomeTags.IS_OVERWORLD);
         this.tag(EqualsTags.Biomes.SPAWNS_ALBINO_COW).addTag(Tags.Biomes.IS_COLD_OVERWORLD);
         this.tag(EqualsTags.Biomes.SPAWNS_ASHEN_COW).addTag(Tags.Biomes.IS_COLD_OVERWORLD);

@@ -79,7 +79,7 @@ public class VariantSpawnEggItem extends SpawnEggItem {
             BlockPos blockPos = context.getClickedPos();
             Direction direction = context.getClickedFace();
             BlockState blockState = level.getBlockState(blockPos);
-            if (level.getBlockEntity(blockPos) instanceof Spawner spawner) {
+            if (level.getBlockEntity(blockPos) instanceof Spawner spawner) { //todo
                 EntityType<?> entityType = this.getType(itemStack.getTag());
                 spawner.setEntityId(entityType, level.getRandom());
                 level.sendBlockUpdated(blockPos, blockState, blockState, 3);

@@ -2,6 +2,7 @@ package com.bconlon.vanillaequals.event.hooks;
 
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
 import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
+import com.bconlon.vanillaequals.entity.passive.ChickenVariant;
 import com.bconlon.vanillaequals.entity.passive.CowVariant;
 import com.bconlon.vanillaequals.entity.passive.Variant;
 import com.bconlon.vanillaequals.entity.passive.VariantGroupData;
@@ -24,7 +25,9 @@ public class EntityHooks {
                 if (stringTag != null) {
                     String variantName = stringTag.getAsString();
                     Variant variant = null;
-                    if (mob.getType() == EntityType.COW) { //todo switch case
+                    if (mob.getType() == EntityType.CHICKEN) {
+                        variant = ChickenVariant.byName(variantName);
+                    } else if (mob.getType() == EntityType.COW) {
                         variant = CowVariant.byName(variantName);
                     }
                     if (variant != null) {
@@ -41,7 +44,9 @@ public class EntityHooks {
             BlockPos pos = BlockPos.containing(x, y, z);
             Holder<Biome> biome = level.getBiome(pos);
             Variant variant = null;
-            if (mob.getType() == EntityType.COW) { //todo switch case
+            if (mob.getType() == EntityType.CHICKEN) {
+                variant = ChickenVariant.selectVariant(level.getRandom(), biome);
+            } else if (mob.getType() == EntityType.COW) {
                 variant = CowVariant.selectVariant(level.getRandom(), biome);
             }
             if (variant != null) {
@@ -56,11 +61,36 @@ public class EntityHooks {
         return spawnGroupData;
     }
 
+    public static void spawnOffspring(Mob parentA, Mob parentB, AgeableMob child) {
+        if (child != null) {
+            MobVariantAttachment parentAAttachment = parentA.getData(EqualsAttachments.MOB_VARIANT);
+            MobVariantAttachment parentBAttachment = parentB.getData(EqualsAttachments.MOB_VARIANT);
+            MobVariantAttachment childAttachment = child.getData(EqualsAttachments.MOB_VARIANT);
+            Variant variant = null;
+            if (parentA.getType() == EntityType.CHICKEN && parentB.getType() == EntityType.CHICKEN) {
+                variant = child.level().getRandom().nextBoolean() ? parentAAttachment.getVariant(ChickenVariant.GET) : parentBAttachment.getVariant(ChickenVariant.GET);
+            } else if (parentA.getType() == EntityType.COW && parentB.getType() == EntityType.COW) {
+                variant = child.level().getRandom().nextBoolean() ? parentAAttachment.getVariant(CowVariant.GET) : parentBAttachment.getVariant(CowVariant.GET);
+            }
+            if (variant != null) {
+                childAttachment.setVariant(variant);
+            }
+        }
+    }
+
     public static void syncMobVariant(Entity entity) {
-        if (entity.getType() == EntityType.COW) {
-            MobVariantAttachment attachment = entity.getData(EqualsAttachments.MOB_VARIANT);
-            Variant variant = attachment.getVariant(CowVariant.GET);
-            EqualsPackets.sendToAll(new SetVariantPacket.Cow(entity.getId(), variant.getSerializedName()));
+        MobVariantAttachment attachment = entity.getData(EqualsAttachments.MOB_VARIANT);
+        Variant variant = null;
+        SetVariantPacket packet = null;
+        if (entity.getType() == EntityType.CHICKEN) {
+            variant = attachment.getVariant(ChickenVariant.GET);
+            packet = new SetVariantPacket.Chicken(entity.getId(), variant.getSerializedName());
+        } else if (entity.getType() == EntityType.COW) {
+            variant = attachment.getVariant(CowVariant.GET);
+            packet = new SetVariantPacket.Cow(entity.getId(), variant.getSerializedName());
+        }
+        if (variant != null) {
+            EqualsPackets.sendToAll(packet);
         }
     }
 }

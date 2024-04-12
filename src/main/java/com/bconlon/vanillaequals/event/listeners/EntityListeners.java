@@ -3,20 +3,18 @@ package com.bconlon.vanillaequals.event.listeners;
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.event.hooks.EntityHooks;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 @Mod.EventBusSubscriber(modid = VanillaEquals.MODID)
 public class EntityListeners {
     @SubscribeEvent
-    public static void onMobSpawn(MobSpawnEvent.FinalizeSpawn event) { //todo might need to make this work with groups properly to make variants spawn in groups.
+    public static void onMobSpawn(MobSpawnEvent.FinalizeSpawn event) {
         Mob mob = event.getEntity();
         ServerLevelAccessor level = event.getLevel();
         double x = event.getX();
@@ -28,6 +26,14 @@ public class EntityListeners {
         EntityHooks.spawnEggDetermineVariant(mob, spawnType, tag);
         SpawnGroupData newGroupData = EntityHooks.chooseMobVariant(mob, level, x, y, z, spawnType, spawnGroupData);
         event.setSpawnData(newGroupData);
+    }
+
+    @SubscribeEvent
+    public static void onMobBreed(BabyEntitySpawnEvent event) {
+        Mob parentA = event.getParentA();
+        Mob parentB = event.getParentB();
+        AgeableMob child = event.getChild();
+        EntityHooks.spawnOffspring(parentA, parentB, child);
     }
 
     @SubscribeEvent

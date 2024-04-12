@@ -15,6 +15,7 @@ public class EqualsPackets {
         IPayloadRegistrar registrar = event.registrar(VanillaEquals.MODID).versioned("1.0.0").optional();
 
         // CLIENTBOUND
+        registrar.play(SetVariantPacket.Chicken.ID, SetVariantPacket.Chicken::decode, payload -> payload.client(SetVariantPacket.Chicken::handle));
         registrar.play(SetVariantPacket.Cow.ID, SetVariantPacket.Cow::decode, payload -> payload.client(SetVariantPacket.Cow::handle));
     }
 

@@ -61,9 +61,9 @@ public enum CowVariant implements Variant { //todo balancing
     }
 
     public static CowVariant selectVariant(RandomSource random, Holder<Biome> biome) {
-        for (CowVariant cowVariant : CowVariant.values()) {
-            if (biome.is(cowVariant.getSpawnBiome()) && random.nextFloat() < cowVariant.getRarity()) {
-                return cowVariant;
+        for (CowVariant variant : CowVariant.values()) {
+            if (biome.is(variant.getSpawnBiome()) && random.nextFloat() < variant.getRarity()) {
+                return variant;
             }
         }
         return DEFAULT;

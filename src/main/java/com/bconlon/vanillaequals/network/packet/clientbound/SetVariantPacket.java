@@ -2,6 +2,7 @@ package com.bconlon.vanillaequals.network.packet.clientbound;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
+import com.bconlon.vanillaequals.entity.passive.ChickenVariant;
 import com.bconlon.vanillaequals.entity.passive.CowVariant;
 import com.bconlon.vanillaequals.entity.passive.Variant;
 import com.bconlon.vanillaequals.network.packet.BasePacket;
@@ -36,6 +37,30 @@ public abstract class SetVariantPacket implements BasePacket {
                 Variant variant = function.apply(this.variantName);
                 entity.getData(EqualsAttachments.MOB_VARIANT).setVariant(variant);
             }
+        }
+    }
+
+    public static class Chicken extends SetVariantPacket {
+        public static final ResourceLocation ID = new ResourceLocation(VanillaEquals.MODID, "set_chicken_variant");
+
+        public Chicken(int entityID, String variantName) {
+            super(entityID, variantName);
+        }
+
+        @Override
+        public ResourceLocation id() {
+            return ID;
+        }
+
+        public static SetVariantPacket.Chicken decode(FriendlyByteBuf buf) {
+            int entityID = buf.readInt();
+            String variantName = buf.readUtf();
+            return new SetVariantPacket.Chicken(entityID, variantName);
+        }
+
+        @Override
+        public void execute(@Nullable Player player) {
+            this.execute(ChickenVariant.GET);
         }
     }
 
