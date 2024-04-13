@@ -25,6 +25,12 @@ public class EqualsLanguageData extends EqualsLanguageProvider {
         this.addItem(EqualsItems.DAIRY_COW_SPAWN_EGG, "Dairy Cow Spawn Egg");
         this.addItem(EqualsItems.PINTO_COW_SPAWN_EGG, "Pinto Cow Spawn Egg");
         this.addItem(EqualsItems.SUNSET_COW_SPAWN_EGG, "Sunset Cow Spawn Egg");
+        this.addItem(EqualsItems.MOTTLED_PIG_SPAWN_EGG, "Mottled Pig Spawn Egg");
+        this.addItem(EqualsItems.PALE_PIG_SPAWN_EGG, "Pale Pig Spawn Egg");
+        this.addItem(EqualsItems.PIEBALD_PIG_SPAWN_EGG, "Piebald Pig Spawn Egg");
+        this.addItem(EqualsItems.PINK_FOOTED_PIG_SPAWN_EGG, "Pink Footed Pig Spawn Egg");
+        this.addItem(EqualsItems.SOOTY_PIG_SPAWN_EGG, "Sooty Pig Spawn Egg");
+        this.addItem(EqualsItems.SPOTTED_PIG_SPAWN_EGG, "Spotted Pig Spawn Egg");
 
         // Paintings
         this.addPaintingTitle("makrill", "Makrill");

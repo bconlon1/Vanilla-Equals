@@ -1,7 +1,8 @@
-package com.bconlon.vanillaequals.entity.passive;
+package com.bconlon.vanillaequals.entity.passive.variant;
 
 import com.bconlon.vanillaequals.EqualsTags;
 import com.bconlon.vanillaequals.VanillaEquals;
+import com.bconlon.vanillaequals.entity.Variant;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;

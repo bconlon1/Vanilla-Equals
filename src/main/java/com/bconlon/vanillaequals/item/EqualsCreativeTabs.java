@@ -29,6 +29,12 @@ public class EqualsCreativeTabs {
             event.getEntries().putAfter(new ItemStack(EqualsItems.CREAM_COW_SPAWN_EGG.get()), new ItemStack(EqualsItems.DAIRY_COW_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(new ItemStack(EqualsItems.DAIRY_COW_SPAWN_EGG.get()), new ItemStack(EqualsItems.PINTO_COW_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(new ItemStack(EqualsItems.PINTO_COW_SPAWN_EGG.get()), new ItemStack(EqualsItems.SUNSET_COW_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(new ItemStack(Items.PIG_SPAWN_EGG), new ItemStack(EqualsItems.MOTTLED_PIG_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(new ItemStack(EqualsItems.MOTTLED_PIG_SPAWN_EGG.get()), new ItemStack(EqualsItems.PALE_PIG_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(new ItemStack(EqualsItems.PALE_PIG_SPAWN_EGG.get()), new ItemStack(EqualsItems.PIEBALD_PIG_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(new ItemStack(EqualsItems.PIEBALD_PIG_SPAWN_EGG.get()), new ItemStack(EqualsItems.PINK_FOOTED_PIG_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(new ItemStack(EqualsItems.PINK_FOOTED_PIG_SPAWN_EGG.get()), new ItemStack(EqualsItems.SOOTY_PIG_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(new ItemStack(EqualsItems.SOOTY_PIG_SPAWN_EGG.get()), new ItemStack(EqualsItems.SPOTTED_PIG_SPAWN_EGG.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 }

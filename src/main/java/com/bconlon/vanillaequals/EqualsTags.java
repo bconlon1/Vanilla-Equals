@@ -23,6 +23,14 @@ public class EqualsTags {
         public static final TagKey<Biome> SPAWNS_DAIRY_COW = tag("spawns_dairy_cow");
         public static final TagKey<Biome> SPAWNS_PINTO_COW = tag("spawns_pinto_cow");
         public static final TagKey<Biome> SPAWNS_SUNSET_COW = tag("spawns_sunset_cow");
+
+        public static final TagKey<Biome> SPAWNS_DEFAULT_PIG = tag("spawns_default_pig");
+        public static final TagKey<Biome> SPAWNS_MOTTLED_PIG = tag("spawns_mottled_pig");
+        public static final TagKey<Biome> SPAWNS_PALE_PIG = tag("spawns_pale_pig");
+        public static final TagKey<Biome> SPAWNS_PIEBALD_PIG = tag("spawns_piebald_pig");
+        public static final TagKey<Biome> SPAWNS_PINK_FOOTED_PIG = tag("spawns_pink_footed_pig");
+        public static final TagKey<Biome> SPAWNS_SOOTY_PIG = tag("spawns_sooty_pig");
+        public static final TagKey<Biome> SPAWNS_SPOTTED_PIG = tag("spawns_spotted_pig");
     }
 
     private static TagKey<Biome> tag(String name) {

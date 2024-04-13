@@ -1,4 +1,4 @@
-package com.bconlon.vanillaequals.entity.passive;
+package com.bconlon.vanillaequals.entity;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;

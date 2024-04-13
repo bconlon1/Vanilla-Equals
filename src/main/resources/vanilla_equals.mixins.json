@@ -9,8 +9,9 @@
     "common.TallGrassBlockMixin"
   ],
   "client": [
+    "client.ChickenRendererMixin",
     "client.CowRendererMixin",
-    "client.ChickenRendererMixin"
+    "client.PigRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

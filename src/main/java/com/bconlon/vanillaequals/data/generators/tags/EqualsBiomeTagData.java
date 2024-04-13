@@ -33,5 +33,12 @@ public class EqualsBiomeTagData extends BiomeTagsProvider {
         this.tag(EqualsTags.Biomes.SPAWNS_DAIRY_COW).addTag(BiomeTags.IS_OVERWORLD);
         this.tag(EqualsTags.Biomes.SPAWNS_PINTO_COW).addTag(Tags.Biomes.IS_DRY_OVERWORLD);
         this.tag(EqualsTags.Biomes.SPAWNS_SUNSET_COW).addTag(Tags.Biomes.IS_DRY_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_DEFAULT_PIG).addTag(Tags.Biomes.IS_COLD_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_MOTTLED_PIG).addTag(Tags.Biomes.IS_COLD_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_PALE_PIG).addTag(Tags.Biomes.IS_COLD_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_PIEBALD_PIG).addTag(Tags.Biomes.IS_PLAINS);
+        this.tag(EqualsTags.Biomes.SPAWNS_PINK_FOOTED_PIG).addTag(BiomeTags.IS_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_SOOTY_PIG).addTag(Tags.Biomes.IS_DRY_OVERWORLD);
+        this.tag(EqualsTags.Biomes.SPAWNS_SPOTTED_PIG).addTag(Tags.Biomes.IS_DRY_OVERWORLD);
     }
 }

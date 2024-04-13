@@ -2,9 +2,10 @@ package com.bconlon.vanillaequals.network.packet.clientbound;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
-import com.bconlon.vanillaequals.entity.passive.ChickenVariant;
-import com.bconlon.vanillaequals.entity.passive.CowVariant;
-import com.bconlon.vanillaequals.entity.passive.Variant;
+import com.bconlon.vanillaequals.entity.passive.variant.ChickenVariant;
+import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
+import com.bconlon.vanillaequals.entity.Variant;
+import com.bconlon.vanillaequals.entity.passive.variant.PigVariant;
 import com.bconlon.vanillaequals.network.packet.BasePacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
@@ -85,6 +86,30 @@ public abstract class SetVariantPacket implements BasePacket {
         @Override
         public void execute(@Nullable Player player) {
             this.execute(CowVariant.GET);
+        }
+    }
+
+    public static class Pig extends SetVariantPacket {
+        public static final ResourceLocation ID = new ResourceLocation(VanillaEquals.MODID, "set_pig_variant");
+
+        public Pig(int entityID, String variantName) {
+            super(entityID, variantName);
+        }
+
+        @Override
+        public ResourceLocation id() {
+            return ID;
+        }
+
+        public static SetVariantPacket.Pig decode(FriendlyByteBuf buf) {
+            int entityID = buf.readInt();
+            String variantName = buf.readUtf();
+            return new SetVariantPacket.Pig(entityID, variantName);
+        }
+
+        @Override
+        public void execute(@Nullable Player player) {
+            this.execute(PigVariant.GET);
         }
     }
 }

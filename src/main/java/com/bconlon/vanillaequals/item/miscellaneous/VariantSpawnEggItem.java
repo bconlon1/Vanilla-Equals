@@ -2,7 +2,7 @@ package com.bconlon.vanillaequals.item.miscellaneous;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
-import com.bconlon.vanillaequals.entity.passive.Variant;
+import com.bconlon.vanillaequals.entity.Variant;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
@@ -137,10 +137,7 @@ public class VariantSpawnEggItem extends SpawnEggItem {
 
     @Override
     public Optional<Mob> spawnOffspringFromSpawnEgg(Player player, Mob mob, EntityType<? extends Mob> entityType, ServerLevel serverLevel, Vec3 pPos, ItemStack stack) {
-        Variant variant = null;
-        if (mob.hasData(EqualsAttachments.MOB_VARIANT)) {
-            variant = mob.getData(EqualsAttachments.MOB_VARIANT).getVariant(this.getter);
-        }
+        Variant variant = mob.getData(EqualsAttachments.MOB_VARIANT).getVariant(this.getter);
         if (!this.spawnsEntity(stack.getTag(), entityType, variant)) {
             return Optional.empty();
         } else {
@@ -152,7 +149,8 @@ public class VariantSpawnEggItem extends SpawnEggItem {
             }
             if (mob1 == null) {
                 return Optional.empty();
-            } else { //todo
+            } else {
+                mob1.getData(EqualsAttachments.MOB_VARIANT).setVariant(variant);
                 mob1.setBaby(true);
                 if (!mob1.isBaby()) {
                     return Optional.empty();

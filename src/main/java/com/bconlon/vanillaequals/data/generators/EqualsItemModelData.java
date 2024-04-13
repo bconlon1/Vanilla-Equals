@@ -25,5 +25,11 @@ public class EqualsItemModelData extends EqualsItemModelProvider {
         this.eggItem(EqualsItems.DAIRY_COW_SPAWN_EGG.get());
         this.eggItem(EqualsItems.PINTO_COW_SPAWN_EGG.get());
         this.eggItem(EqualsItems.SUNSET_COW_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.MOTTLED_PIG_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.PALE_PIG_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.PIEBALD_PIG_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.PINK_FOOTED_PIG_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.SOOTY_PIG_SPAWN_EGG.get());
+        this.eggItem(EqualsItems.SPOTTED_PIG_SPAWN_EGG.get());
     }
 }

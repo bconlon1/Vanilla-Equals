@@ -17,6 +17,7 @@ public class EqualsPackets {
         // CLIENTBOUND
         registrar.play(SetVariantPacket.Chicken.ID, SetVariantPacket.Chicken::decode, payload -> payload.client(SetVariantPacket.Chicken::handle));
         registrar.play(SetVariantPacket.Cow.ID, SetVariantPacket.Cow::decode, payload -> payload.client(SetVariantPacket.Cow::handle));
+        registrar.play(SetVariantPacket.Pig.ID, SetVariantPacket.Pig::decode, payload -> payload.client(SetVariantPacket.Pig::handle));
     }
 
     public static <MSG extends CustomPacketPayload> void sendToPlayer(MSG message, ServerPlayer player) {
