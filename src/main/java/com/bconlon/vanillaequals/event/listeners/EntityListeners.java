@@ -8,6 +8,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
@@ -25,6 +26,7 @@ public class EntityListeners {
         CompoundTag tag = event.getSpawnTag();
         EntityHooks.spawnEggDetermineVariant(mob, spawnType, tag);
         SpawnGroupData newGroupData = EntityHooks.chooseMobVariant(mob, level, x, y, z, spawnType, spawnGroupData);
+        newGroupData = EntityHooks.determineSpawnAge(mob, level, spawnType, newGroupData);
         event.setSpawnData(newGroupData);
     }
 
@@ -40,5 +42,12 @@ public class EntityListeners {
     public static void onMobTrack(PlayerEvent.StartTracking event) {
         Entity entity = event.getTarget();
         EntityHooks.syncMobVariant(entity);
+        EntityHooks.syncMobAge(entity);
+    }
+
+    @SubscribeEvent
+    public static void onMobTick(LivingEvent.LivingTickEvent event) {
+        LivingEntity entity = event.getEntity();
+        EntityHooks.tickAge(entity);
     }
 }

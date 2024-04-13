@@ -1,13 +1,16 @@
 package com.bconlon.vanillaequals.event.hooks;
 
+import com.bconlon.vanillaequals.VanillaEquals;
+import com.bconlon.vanillaequals.attachment.AgeableAttachment;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
 import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
-import com.bconlon.vanillaequals.entity.passive.variant.ChickenVariant;
-import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
 import com.bconlon.vanillaequals.entity.Variant;
 import com.bconlon.vanillaequals.entity.VariantGroupData;
+import com.bconlon.vanillaequals.entity.passive.variant.ChickenVariant;
+import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
 import com.bconlon.vanillaequals.entity.passive.variant.PigVariant;
 import com.bconlon.vanillaequals.network.EqualsPackets;
+import com.bconlon.vanillaequals.network.packet.clientbound.SetAgePacket;
 import com.bconlon.vanillaequals.network.packet.clientbound.SetVariantPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -66,6 +69,24 @@ public class EntityHooks {
         return spawnGroupData;
     }
 
+    public static SpawnGroupData determineSpawnAge(Mob mob, ServerLevelAccessor level, MobSpawnType spawnType, SpawnGroupData spawnGroupData) {
+        if (spawnType == MobSpawnType.NATURAL || spawnType == MobSpawnType.CHUNK_GENERATION) {
+            if (mob.getType() == EntityType.SQUID || mob.getType() == EntityType.GLOW_SQUID) {
+                AgeableAttachment attachment = mob.getData(EqualsAttachments.AGEABLE);
+                if (spawnGroupData == null) {
+                    spawnGroupData = new AgeableMob.AgeableMobGroupData(true);
+                }
+                AgeableMob.AgeableMobGroupData ageableGroupData = (AgeableMob.AgeableMobGroupData) spawnGroupData;
+                if (ageableGroupData.isShouldSpawnBaby() && ageableGroupData.getGroupSize() > 0 && level.getRandom().nextFloat() <= ageableGroupData.getBabySpawnChance()) {
+                    VanillaEquals.LOGGER.info("baby: " + mob.position());
+                    attachment.setAge(mob, -24000);
+                }
+                ageableGroupData.increaseGroupSizeByOne();
+            }
+        }
+        return spawnGroupData;
+    }
+
     public static void spawnOffspring(Mob parentA, Mob parentB, AgeableMob child) {
         if (child != null) {
             MobVariantAttachment parentAAttachment = parentA.getData(EqualsAttachments.MOB_VARIANT);
@@ -102,5 +123,16 @@ public class EntityHooks {
         if (variant != null) {
             EqualsPackets.sendToAll(packet);
         }
+    }
+
+    public static void syncMobAge(Entity entity) {
+        if (entity.getType() == EntityType.SQUID || entity.getType() == EntityType.GLOW_SQUID) {
+            AgeableAttachment attachment = entity.getData(EqualsAttachments.AGEABLE);
+            EqualsPackets.sendToAll(new SetAgePacket(entity.getId(), attachment.getAge(entity)));
+        }
+    }
+
+    public static void tickAge(LivingEntity entity) {
+        entity.getData(EqualsAttachments.AGEABLE).tickAge(entity);
     }
 }

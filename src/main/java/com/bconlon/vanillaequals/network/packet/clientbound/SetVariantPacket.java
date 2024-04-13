@@ -2,9 +2,9 @@ package com.bconlon.vanillaequals.network.packet.clientbound;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
+import com.bconlon.vanillaequals.entity.Variant;
 import com.bconlon.vanillaequals.entity.passive.variant.ChickenVariant;
 import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
-import com.bconlon.vanillaequals.entity.Variant;
 import com.bconlon.vanillaequals.entity.passive.variant.PigVariant;
 import com.bconlon.vanillaequals.network.packet.BasePacket;
 import net.minecraft.client.Minecraft;

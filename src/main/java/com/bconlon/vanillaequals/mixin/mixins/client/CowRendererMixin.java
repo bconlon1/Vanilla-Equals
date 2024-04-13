@@ -1,8 +1,8 @@
 package com.bconlon.vanillaequals.mixin.mixins.client;
 
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
-import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
 import com.bconlon.vanillaequals.entity.Variant;
+import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
 import net.minecraft.client.renderer.entity.CowRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Cow;

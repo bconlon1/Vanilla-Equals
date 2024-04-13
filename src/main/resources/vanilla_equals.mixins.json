@@ -6,11 +6,13 @@
   "refmap": "vanilla_equals.refmap.json",
   "mixins": [
     "common.BlockStateBaseMixin",
+    "common.LivingEntityMixin",
     "common.TallGrassBlockMixin"
   ],
   "client": [
     "client.ChickenRendererMixin",
     "client.CowRendererMixin",
+    "client.LivingEntityRendererMixin",
     "client.PigRendererMixin"
   ],
   "injectors": {
