@@ -33,8 +33,41 @@ public class EqualsLanguageData extends EqualsLanguageProvider {
         this.addItem(EqualsItems.SPOTTED_PIG_SPAWN_EGG, "Spotted Pig Spawn Egg");
 
         // Paintings
-        this.addPaintingTitle("makrill", "Makrill");
-        this.addPaintingAuthor("makrill", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("birdie", "Birdie");
+        this.addPaintingAuthor("birdie", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("cs_desert", "cs_desert");
+        this.addPaintingAuthor("cs_desert", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("cs_desert_2", "cs_desert");
+        this.addPaintingAuthor("cs_desert_2", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("cs_italy", "cs_italy");
+        this.addPaintingAuthor("cs_italy", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("cs_italy_2", "cs_italy");
+        this.addPaintingAuthor("cs_italy_2", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("cs_italy_3", "cs_italy");
+        this.addPaintingAuthor("cs_italy_3", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("cs_militia", "cs_militia");
+        this.addPaintingAuthor("cs_militia", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("de_aztec", "de_aztec");
+        this.addPaintingAuthor("de_aztec", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("de_chateau", "de_chateau");
+        this.addPaintingAuthor("de_chateau", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("de_dust", "de_dust");
+        this.addPaintingAuthor("de_dust", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("de_dust_2", "de_dust");
+        this.addPaintingAuthor("de_dust_2", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("de_dust2", "de_dust2");
+        this.addPaintingAuthor("de_dust2", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("de_dust2_2", "de_dust2");
+        this.addPaintingAuthor("de_dust2_2", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("flukey", "Flukey");
+        this.addPaintingAuthor("flukey", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("hs", "hs");
+        this.addPaintingAuthor("hs", "Kristoffer Zetterstrand");
+        this.addPaintingTitle("then", "Then");
+        this.addPaintingAuthor("then", "Kristoffer Zetterstrand");
+
+//        this.addPaintingTitle("makrill", "Makrill");
+//        this.addPaintingAuthor("makrill", "Kristoffer Zetterstrand");
 
         // Packs
         this.addPackDescription("mod", "Vanilla Equals Resources");

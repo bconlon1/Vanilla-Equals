@@ -4,6 +4,21 @@
     "minecraft:wind",
     "minecraft:water",
     "minecraft:fire",
-    "vanilla_equals:makrill"
+    "vanilla_equals:birdie",
+    "vanilla_equals:cs_desert",
+    "vanilla_equals:cs_desert_2",
+    "vanilla_equals:cs_italy",
+    "vanilla_equals:cs_italy_2",
+    "vanilla_equals:cs_italy_3",
+    "vanilla_equals:cs_militia",
+    "vanilla_equals:de_aztec",
+    "vanilla_equals:de_chateau",
+    "vanilla_equals:de_dust",
+    "vanilla_equals:de_dust_2",
+    "vanilla_equals:de_dust2",
+    "vanilla_equals:de_dust2_2",
+    "vanilla_equals:flukey",
+    "vanilla_equals:hs",
+    "vanilla_equals:then"
   ]
 }

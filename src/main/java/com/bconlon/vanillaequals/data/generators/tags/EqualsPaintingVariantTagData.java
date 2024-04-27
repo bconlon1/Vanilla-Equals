@@ -25,7 +25,22 @@ public class EqualsPaintingVariantTagData extends PaintingVariantTagsProvider {
                         PaintingVariants.WIND,
                         PaintingVariants.WATER,
                         PaintingVariants.FIRE,
-                        EqualsPaintingVariants.MAKRILL.getKey()
+                        EqualsPaintingVariants.BIRDIE.getKey(),
+                        EqualsPaintingVariants.CS_DESERT.getKey(),
+                        EqualsPaintingVariants.CS_DESERT_2.getKey(),
+                        EqualsPaintingVariants.CS_ITALY.getKey(),
+                        EqualsPaintingVariants.CS_ITALY_2.getKey(),
+                        EqualsPaintingVariants.CS_ITALY_3.getKey(),
+                        EqualsPaintingVariants.CS_MILITIA.getKey(),
+                        EqualsPaintingVariants.DE_AZTEC.getKey(),
+                        EqualsPaintingVariants.DE_CHATEAU.getKey(),
+                        EqualsPaintingVariants.DE_DUST.getKey(),
+                        EqualsPaintingVariants.DE_DUST_2.getKey(),
+                        EqualsPaintingVariants.DE_DUST2.getKey(),
+                        EqualsPaintingVariants.DE_DUST2_2.getKey(),
+                        EqualsPaintingVariants.FLUKEY.getKey(),
+                        EqualsPaintingVariants.HS.getKey(),
+                        EqualsPaintingVariants.THEN.getKey()
                 );
     }
 }
