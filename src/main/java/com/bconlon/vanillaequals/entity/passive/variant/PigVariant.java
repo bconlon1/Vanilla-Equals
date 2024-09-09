@@ -52,6 +52,11 @@ public enum PigVariant implements Variant {
     }
 
     @Override
+    public ModelType getModelType() { //todo
+        return ModelType.DEFAULT;
+    }
+
+    @Override
     public String getSerializedName() {
         return this.name;
     }

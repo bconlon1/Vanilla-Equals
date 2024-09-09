@@ -9,4 +9,10 @@ public interface Variant extends StringRepresentable {
     TagKey<Biome> getSpawnBiome();
     float getRarity();
     ResourceLocation getTexture();
+    ModelType getModelType();
+
+    enum ModelType {
+        DEFAULT,
+        DETAILED;
+    }
 }

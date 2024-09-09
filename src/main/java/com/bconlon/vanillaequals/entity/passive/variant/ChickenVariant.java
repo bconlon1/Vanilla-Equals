@@ -52,6 +52,11 @@ public enum ChickenVariant implements Variant { //todo balancing
     }
 
     @Override
+    public ModelType getModelType() { //todo
+        return ModelType.DEFAULT;
+    }
+
+    @Override
     public String getSerializedName() {
         return this.name;
     }

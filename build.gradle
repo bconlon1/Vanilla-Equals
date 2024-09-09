@@ -1,7 +1,9 @@
 plugins {
+    id 'java-library'
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.+'
+    id 'net.neoforged.gradle.userdev' version '7.0.97'
     id 'io.github.0ffz.github-packages' version '[1,2)'
     id 'com.matthewprenger.cursegradle' version '[1.4,1.5)'
     id 'com.modrinth.minotaur' version '[2,3)'
@@ -126,4 +128,11 @@ modrinth {
     uploadFile = tasks.jar
     gameVersions = ["${project.mc_version}"]
     loaders = ["neoforge"]
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
 }
