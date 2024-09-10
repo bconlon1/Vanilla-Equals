@@ -2,7 +2,6 @@ package com.bconlon.vanillaequals.event.listeners;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.event.hooks.EntityHooks;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -10,7 +9,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
 import net.neoforged.neoforge.event.entity.living.FinalizeSpawnEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = VanillaEquals.MODID)
 public class EntityListeners {
@@ -25,7 +23,6 @@ public class EntityListeners {
         SpawnGroupData spawnGroupData = event.getSpawnData();
         SpawnGroupData newGroupData = EntityHooks.chooseMobVariant(mob, level, x, y, z, spawnType, spawnGroupData);
         event.setSpawnData(newGroupData);
-        EntityHooks.syncMobVariant(mob);
     }
 
     @SubscribeEvent

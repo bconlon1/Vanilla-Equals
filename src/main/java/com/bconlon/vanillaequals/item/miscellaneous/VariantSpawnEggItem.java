@@ -93,11 +93,7 @@ public class VariantSpawnEggItem extends SpawnEggItem {
                 }
                 EntityType<?> entityType = this.getType(itemStack);
                 if (level instanceof ServerLevel serverLevel) {
-                    if (entityType.spawn(serverLevel, EntityType.appendDefaultStackConfig(consumerEntity -> {
-                        if (consumerEntity.hasData(EqualsAttachments.MOB_VARIANT)) {
-                            consumerEntity.getData(EqualsAttachments.MOB_VARIANT).setVariant(this.getDefaultVariant());
-                        }
-                    }, serverLevel, itemStack, context.getPlayer()), relativePos, MobSpawnType.SPAWN_EGG, true, !Objects.equals(blockPos, relativePos) && direction == Direction.UP) != null) {
+                    if (entityType.spawn(serverLevel, EntityType.appendDefaultStackConfig(consumerEntity -> consumerEntity.getData(EqualsAttachments.MOB_VARIANT).setVariant(this.getDefaultVariant()), serverLevel, itemStack, context.getPlayer()), relativePos, MobSpawnType.SPAWN_EGG, true, !Objects.equals(blockPos, relativePos) && direction == Direction.UP) != null) {
                         itemStack.shrink(1);
                         level.gameEvent(context.getPlayer(), GameEvent.ENTITY_PLACE, blockPos);
                     }
@@ -121,11 +117,7 @@ public class VariantSpawnEggItem extends SpawnEggItem {
                 return InteractionResultHolder.pass(itemStack);
             } else if (level.mayInteract(player, blockPos) && player.mayUseItemAt(blockPos, hitResult.getDirection(), itemStack)) {
                 EntityType<?> entityType = this.getType(itemStack);
-                Entity entity = entityType.spawn((ServerLevel) level, EntityType.appendDefaultStackConfig(consumerEntity -> {
-                    if (consumerEntity.hasData(EqualsAttachments.MOB_VARIANT)) {
-                        consumerEntity.getData(EqualsAttachments.MOB_VARIANT).setVariant(this.getDefaultVariant());
-                    }
-                }, (ServerLevel) level, itemStack, player), blockPos, MobSpawnType.SPAWN_EGG, false, false);
+                Entity entity = entityType.spawn((ServerLevel) level, EntityType.appendDefaultStackConfig(consumerEntity -> consumerEntity.getData(EqualsAttachments.MOB_VARIANT).setVariant(this.getDefaultVariant()), (ServerLevel) level, itemStack, player), blockPos, MobSpawnType.SPAWN_EGG, false, false);
                 if (entity == null) {
                     return InteractionResultHolder.pass(itemStack);
                 } else {
