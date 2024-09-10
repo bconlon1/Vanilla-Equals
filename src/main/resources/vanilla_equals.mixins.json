@@ -11,8 +11,8 @@
   "client": [
     "client.ChickenRendererMixin",
     "client.CowRendererMixin",
-    "client.LivingEntityRendererMixin",
-    "client.PigRendererMixin"
+    "client.PigRendererMixin",
+    "client.accessors.LivingEntityRendererAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

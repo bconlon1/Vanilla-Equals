@@ -4,12 +4,7 @@ import com.bconlon.vanillaequals.attachment.EqualsAttachments;
 import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
 import com.bconlon.vanillaequals.entity.Variant;
 import com.bconlon.vanillaequals.entity.VariantGroupData;
-import com.bconlon.vanillaequals.entity.passive.variant.ChickenVariant;
-import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
-import com.bconlon.vanillaequals.entity.passive.variant.PigVariant;
-import com.bconlon.vanillaequals.network.packet.clientbound.SetChickenVariantPacket;
-import com.bconlon.vanillaequals.network.packet.clientbound.SetCowVariantPacket;
-import com.bconlon.vanillaequals.network.packet.clientbound.SetPigVariantPacket;
+import com.bconlon.vanillaequals.entity.passive.variant.VariantFunctions;
 import com.bconlon.vanillaequals.network.packet.clientbound.SetVariantPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -25,12 +20,8 @@ public class EntityHooks {
             BlockPos pos = BlockPos.containing(x, y, z);
             Holder<Biome> biome = level.getBiome(pos);
             Variant variant = null;
-            if (mob.getType() == EntityType.CHICKEN) {
-                variant = ChickenVariant.selectVariant(level.getRandom(), biome);
-            } else if (mob.getType() == EntityType.COW) {
-                variant = CowVariant.selectVariant(level.getRandom(), biome);
-            } else if (mob.getType() == EntityType.PIG) {
-                variant = PigVariant.selectVariant(level.getRandom(), biome);
+            if (VariantFunctions.VARIANT_FUNCTIONS.containsKey(mob.getType())) {
+                variant = VariantFunctions.VARIANT_FUNCTIONS.get(mob.getType()).randomSelector().apply(level.getRandom(), biome);
             }
             if (variant != null) {
                 if (spawnGroupData instanceof VariantGroupData variantGroupData) {
@@ -50,12 +41,10 @@ public class EntityHooks {
             MobVariantAttachment parentBAttachment = parentB.getData(EqualsAttachments.MOB_VARIANT);
             MobVariantAttachment childAttachment = child.getData(EqualsAttachments.MOB_VARIANT);
             Variant variant = null;
-            if (parentA.getType() == EntityType.CHICKEN && parentB.getType() == EntityType.CHICKEN) {
-                variant = child.level().getRandom().nextBoolean() ? parentAAttachment.getVariant(ChickenVariant.GET) : parentBAttachment.getVariant(ChickenVariant.GET);
-            } else if (parentA.getType() == EntityType.COW && parentB.getType() == EntityType.COW) {
-                variant = child.level().getRandom().nextBoolean() ? parentAAttachment.getVariant(CowVariant.GET) : parentBAttachment.getVariant(CowVariant.GET);
-            } else if (parentA.getType() == EntityType.PIG && parentB.getType() == EntityType.PIG) {
-                variant = child.level().getRandom().nextBoolean() ? parentAAttachment.getVariant(PigVariant.GET) : parentBAttachment.getVariant(PigVariant.GET);
+            if (parentA.getType() == parentB.getType() && VariantFunctions.VARIANT_FUNCTIONS.containsKey(parentA.getType())) {
+                variant = child.level().getRandom().nextBoolean()
+                        ? parentAAttachment.getVariant(VariantFunctions.VARIANT_FUNCTIONS.get(parentA.getType()).variantGetter())
+                        : parentBAttachment.getVariant(VariantFunctions.VARIANT_FUNCTIONS.get(parentB.getType()).variantGetter());
             }
             if (variant != null) {
                 childAttachment.setVariant(variant);
@@ -67,15 +56,9 @@ public class EntityHooks {
         MobVariantAttachment attachment = entity.getData(EqualsAttachments.MOB_VARIANT);
         Variant variant = null;
         SetVariantPacket packet = null;
-        if (entity.getType() == EntityType.CHICKEN) {
-            variant = attachment.getVariant(ChickenVariant.GET);
-            packet = new SetChickenVariantPacket(entity.getId(), variant.getSerializedName());
-        } else if (entity.getType() == EntityType.COW) {
-            variant = attachment.getVariant(CowVariant.GET);
-            packet = new SetCowVariantPacket(entity.getId(), variant.getSerializedName());
-        } else if (entity.getType() == EntityType.PIG) {
-            variant = attachment.getVariant(PigVariant.GET);
-            packet = new SetPigVariantPacket(entity.getId(), variant.getSerializedName());
+        if (VariantFunctions.VARIANT_FUNCTIONS.containsKey(entity.getType())) {
+            variant = attachment.getVariant(VariantFunctions.VARIANT_FUNCTIONS.get(entity.getType()).variantGetter());
+            packet = VariantFunctions.VARIANT_FUNCTIONS.get(entity.getType()).packet().apply(entity.getId(), variant.getSerializedName());
         }
         if (variant != null) {
             PacketDistributor.sendToAllPlayers(packet);
