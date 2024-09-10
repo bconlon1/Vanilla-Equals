@@ -13,13 +13,13 @@ import net.minecraft.world.level.biome.Biome;
 import java.util.function.Function;
 
 public enum ChickenVariant implements Variant { //todo balancing
-    DEFAULT(EqualsTags.Biomes.SPAWNS_DEFAULT_CHICKEN, 0.5F, new ResourceLocation("textures/entity/chicken.png"), "default"),
-    AMBER(EqualsTags.Biomes.SPAWNS_AMBER_CHICKEN, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/chicken/amber.png"), "amber"),
-    BRONZED(EqualsTags.Biomes.SPAWNS_BRONZED_CHICKEN, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/chicken/bronzed.png"), "bronzed"),
-    GOLD_CRESTED(EqualsTags.Biomes.SPAWNS_GOLD_CRESTED_CHICKEN, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/chicken/gold_crested.png"), "gold_crested"),
-    MIDNIGHT(EqualsTags.Biomes.SPAWNS_MIDNIGHT_CHICKEN, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/chicken/midnight.png"), "midnight"),
-    SKEWBALD(EqualsTags.Biomes.SPAWNS_SKEWBALD_CHICKEN, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/chicken/skewbald.png"), "skewbald"),
-    STORMY(EqualsTags.Biomes.SPAWNS_STORMY_CHICKEN, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/chicken/stormy.png"), "stormy");
+    DEFAULT(EqualsTags.Biomes.SPAWNS_DEFAULT_CHICKEN, 0.5F, ResourceLocation.withDefaultNamespace("textures/entity/chicken.png"), "default"),
+    AMBER(EqualsTags.Biomes.SPAWNS_AMBER_CHICKEN, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/chicken/amber.png"), "amber"),
+    BRONZED(EqualsTags.Biomes.SPAWNS_BRONZED_CHICKEN, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/chicken/bronzed.png"), "bronzed"),
+    GOLD_CRESTED(EqualsTags.Biomes.SPAWNS_GOLD_CRESTED_CHICKEN, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/chicken/gold_crested.png"), "gold_crested"),
+    MIDNIGHT(EqualsTags.Biomes.SPAWNS_MIDNIGHT_CHICKEN, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/chicken/midnight.png"), "midnight"),
+    SKEWBALD(EqualsTags.Biomes.SPAWNS_SKEWBALD_CHICKEN, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/chicken/skewbald.png"), "skewbald"),
+    STORMY(EqualsTags.Biomes.SPAWNS_STORMY_CHICKEN, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/chicken/stormy.png"), "stormy");
 
     public static final StringRepresentable.EnumCodec<ChickenVariant> CODEC = StringRepresentable.fromEnum(ChickenVariant::values);
     public static final Function<String, Variant> GET = ChickenVariant::byName;

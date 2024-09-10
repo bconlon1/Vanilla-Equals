@@ -13,14 +13,14 @@ import net.minecraft.world.level.biome.Biome;
 import java.util.function.Function;
 
 public enum CowVariant implements Variant { //todo balancing
-    DEFAULT(EqualsTags.Biomes.SPAWNS_DEFAULT_COW, 0.5F, new ResourceLocation("textures/entity/cow/cow.png"), ModelType.DEFAULT, "default"),
-    ALBINO(EqualsTags.Biomes.SPAWNS_ALBINO_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/albino.png"), ModelType.DETAILED, "albino"),
-    ASHEN(EqualsTags.Biomes.SPAWNS_ASHEN_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/ashen.png"), ModelType.DETAILED, "ashen"),
-    COOKIE(EqualsTags.Biomes.SPAWNS_COOKIE_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/cookie.png"), ModelType.DETAILED, "cookie"),
-    CREAM(EqualsTags.Biomes.SPAWNS_CREAM_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/cream.png"), ModelType.DEFAULT, "cream"),
-    DAIRY(EqualsTags.Biomes.SPAWNS_DAIRY_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/dairy.png"), ModelType.DEFAULT, "dairy"),
-    PINTO(EqualsTags.Biomes.SPAWNS_PINTO_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/pinto.png"), ModelType.DETAILED, "pinto"),
-    SUNSET(EqualsTags.Biomes.SPAWNS_SUNSET_COW, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/cow/sunset.png"), ModelType.DETAILED, "sunset");
+    DEFAULT(EqualsTags.Biomes.SPAWNS_DEFAULT_COW, 0.5F, ResourceLocation.withDefaultNamespace("textures/entity/cow/cow.png"), ModelType.DEFAULT, "default"),
+    ALBINO(EqualsTags.Biomes.SPAWNS_ALBINO_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/albino.png"), ModelType.DETAILED, "albino"),
+    ASHEN(EqualsTags.Biomes.SPAWNS_ASHEN_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/ashen.png"), ModelType.DETAILED, "ashen"),
+    COOKIE(EqualsTags.Biomes.SPAWNS_COOKIE_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/cookie.png"), ModelType.DETAILED, "cookie"),
+    CREAM(EqualsTags.Biomes.SPAWNS_CREAM_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/cream.png"), ModelType.DEFAULT, "cream"),
+    DAIRY(EqualsTags.Biomes.SPAWNS_DAIRY_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/dairy.png"), ModelType.DEFAULT, "dairy"),
+    PINTO(EqualsTags.Biomes.SPAWNS_PINTO_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/pinto.png"), ModelType.DETAILED, "pinto"),
+    SUNSET(EqualsTags.Biomes.SPAWNS_SUNSET_COW, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/cow/sunset.png"), ModelType.DETAILED, "sunset");
 
     public static final StringRepresentable.EnumCodec<CowVariant> CODEC = StringRepresentable.fromEnum(CowVariant::values);
     public static final Function<String, Variant> GET = CowVariant::byName;

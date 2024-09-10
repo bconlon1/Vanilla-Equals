@@ -20,7 +20,7 @@ public class BlockStateBaseMixin {
         Block block = blockStateBase.getBlock();
         if (block instanceof TallGrassBlock) {
             long i = Mth.getSeed(pos.getX(), 0, pos.getZ());
-            double d0 = ((double) ((float) (i >> 4 & 15L) / 15.0F) - 1.0) * (double) block.getMaxVerticalOffset();
+            double d0 = ((double) ((float) (i >> 4 & 15L) / 15.0F) - 1.0) * 0.2;
             cir.setReturnValue(new Vec3(0.0, d0, 0.0));
         }
     }

@@ -12,7 +12,7 @@ public class EqualsModelLayers {
     }
 
     private static ModelLayerLocation register(String name, String type) {
-        return register(new ResourceLocation(VanillaEquals.MODID, name), type);
+        return register(ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, name), type);
     }
 
     private static ModelLayerLocation register(ResourceLocation location, String type) {

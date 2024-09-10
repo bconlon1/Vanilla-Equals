@@ -34,6 +34,6 @@ public class EqualsTags {
     }
 
     private static TagKey<Biome> tag(String name) {
-        return TagKey.create(Registries.BIOME, new ResourceLocation(VanillaEquals.MODID, name));
+        return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, name));
     }
 }

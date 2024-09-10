@@ -13,13 +13,13 @@ import net.minecraft.world.level.biome.Biome;
 import java.util.function.Function;
 
 public enum PigVariant implements Variant {
-    DEFAULT(EqualsTags.Biomes.SPAWNS_DEFAULT_PIG, 0.5F, new ResourceLocation("textures/entity/pig/pig.png"), "default"),
-    MOTTLED(EqualsTags.Biomes.SPAWNS_MOTTLED_PIG, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/pig/mottled.png"), "mottled"),
-    PALE(EqualsTags.Biomes.SPAWNS_PALE_PIG, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/pig/pale.png"), "pale"),
-    PIEBALD(EqualsTags.Biomes.SPAWNS_PIEBALD_PIG, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/pig/piebald.png"), "piebald"),
-    PINK_FOOTED(EqualsTags.Biomes.SPAWNS_PINK_FOOTED_PIG, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/pig/pink_footed.png"), "pink_footed"),
-    SOOTY(EqualsTags.Biomes.SPAWNS_SOOTY_PIG, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/pig/sooty.png"), "sooty"),
-    SPOTTED(EqualsTags.Biomes.SPAWNS_SPOTTED_PIG, 0.5F, new ResourceLocation(VanillaEquals.MODID, "textures/entity/pig/spotted.png"), "spotted");
+    DEFAULT(EqualsTags.Biomes.SPAWNS_DEFAULT_PIG, 0.5F, ResourceLocation.withDefaultNamespace("textures/entity/pig/pig.png"), "default"),
+    MOTTLED(EqualsTags.Biomes.SPAWNS_MOTTLED_PIG, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/pig/mottled.png"), "mottled"),
+    PALE(EqualsTags.Biomes.SPAWNS_PALE_PIG, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/pig/pale.png"), "pale"),
+    PIEBALD(EqualsTags.Biomes.SPAWNS_PIEBALD_PIG, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/pig/piebald.png"), "piebald"),
+    PINK_FOOTED(EqualsTags.Biomes.SPAWNS_PINK_FOOTED_PIG, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/pig/pink_footed.png"), "pink_footed"),
+    SOOTY(EqualsTags.Biomes.SPAWNS_SOOTY_PIG, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/pig/sooty.png"), "sooty"),
+    SPOTTED(EqualsTags.Biomes.SPAWNS_SPOTTED_PIG, 0.5F, ResourceLocation.fromNamespaceAndPath(VanillaEquals.MODID, "textures/entity/pig/spotted.png"), "spotted");
 
     public static final StringRepresentable.EnumCodec<PigVariant> CODEC = StringRepresentable.fromEnum(PigVariant::values);
     public static final Function<String, Variant> GET = PigVariant::byName;

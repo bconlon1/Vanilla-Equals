@@ -52,14 +52,4 @@ public class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityM
             this.model = model;
         }
     }
-
-    @Inject(at = @At("HEAD"), method = "scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V")
-    private void scale(T livingEntity, PoseStack poseStack, float partialTickTime, CallbackInfo ci) {
-        if (livingEntity.getType() == EntityType.SQUID || livingEntity.getType() == EntityType.GLOW_SQUID) {
-            if (livingEntity.isBaby()) {
-                poseStack.scale(0.5F, 0.5F, 0.5F);
-                poseStack.translate(0.0F, -1.2F, 0.0F);
-            }
-        }
-    }
 }

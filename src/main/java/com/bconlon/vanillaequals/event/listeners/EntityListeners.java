@@ -6,16 +6,16 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
-import net.neoforged.neoforge.event.entity.living.LivingEvent;
-import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
+import net.neoforged.neoforge.event.entity.living.FinalizeSpawnEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
-@Mod.EventBusSubscriber(modid = VanillaEquals.MODID)
+@EventBusSubscriber(modid = VanillaEquals.MODID)
 public class EntityListeners {
     @SubscribeEvent
-    public static void onMobSpawn(MobSpawnEvent.FinalizeSpawn event) {
+    public static void onMobSpawn(FinalizeSpawnEvent event) {
         Mob mob = event.getEntity();
         ServerLevelAccessor level = event.getLevel();
         double x = event.getX();
@@ -23,11 +23,9 @@ public class EntityListeners {
         double z = event.getZ();
         MobSpawnType spawnType = event.getSpawnType();
         SpawnGroupData spawnGroupData = event.getSpawnData();
-        CompoundTag tag = event.getSpawnTag();
-        EntityHooks.spawnEggDetermineVariant(mob, spawnType, tag);
         SpawnGroupData newGroupData = EntityHooks.chooseMobVariant(mob, level, x, y, z, spawnType, spawnGroupData);
-        newGroupData = EntityHooks.determineSpawnAge(mob, level, spawnType, newGroupData);
         event.setSpawnData(newGroupData);
+        EntityHooks.syncMobVariant(mob);
     }
 
     @SubscribeEvent
@@ -42,12 +40,5 @@ public class EntityListeners {
     public static void onMobTrack(PlayerEvent.StartTracking event) {
         Entity entity = event.getTarget();
         EntityHooks.syncMobVariant(entity);
-        EntityHooks.syncMobAge(entity);
-    }
-
-    @SubscribeEvent
-    public static void onMobTick(LivingEvent.LivingTickEvent event) {
-        LivingEntity entity = event.getEntity();
-        EntityHooks.tickAge(entity);
     }
 }

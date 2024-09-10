@@ -10,6 +10,4 @@ public class EqualsAttachments {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENTS = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, VanillaEquals.MODID);
 
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<MobVariantAttachment>> MOB_VARIANT = ATTACHMENTS.register("mob_variant", () -> AttachmentType.builder(MobVariantAttachment::new).serialize(MobVariantAttachment.CODEC).build());
-    public static final DeferredHolder<AttachmentType<?>, AttachmentType<AgeableAttachment>> AGEABLE = ATTACHMENTS.register("ageable", () -> AttachmentType.builder(AgeableAttachment::new).serialize(AgeableAttachment.CODEC).build());
-
 }
