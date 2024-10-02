@@ -6,13 +6,22 @@
   "refmap": "vanilla_equals.refmap.json",
   "mixins": [
     "common.BlockStateBaseMixin",
+    "common.ChickenMixin",
+    "common.CowMixin",
+    "common.EatBlockGoalMixin",
+    "common.MobMixin",
     "common.TallGrassBlockMixin"
   ],
   "client": [
+    "client.ChickenModelMixin",
     "client.ChickenRendererMixin",
     "client.CowRendererMixin",
+    "client.EntityModelMixin",
     "client.PigRendererMixin",
-    "client.accessors.LivingEntityRendererAccessor"
+    "client.QuadrupedModelMixin",
+    "client.accessor.ChickenModelAccessor",
+    "client.accessor.LivingEntityRendererAccessor",
+    "client.accessor.QuadrupedModelAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

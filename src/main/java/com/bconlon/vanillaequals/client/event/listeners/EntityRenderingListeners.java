@@ -2,7 +2,7 @@ package com.bconlon.vanillaequals.client.event.listeners;
 
 import com.bconlon.vanillaequals.VanillaEquals;
 import com.bconlon.vanillaequals.client.event.hooks.EntityRenderingHooks;
-import com.bconlon.vanillaequals.mixin.mixins.client.accessors.LivingEntityRendererAccessor;
+import com.bconlon.vanillaequals.mixin.mixins.client.accessor.LivingEntityRendererAccessor;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.LivingEntity;

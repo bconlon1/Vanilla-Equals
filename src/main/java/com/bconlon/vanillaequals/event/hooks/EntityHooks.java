@@ -1,19 +1,36 @@
 package com.bconlon.vanillaequals.event.hooks;
 
 import com.bconlon.vanillaequals.attachment.EqualsAttachments;
+import com.bconlon.vanillaequals.attachment.LivestockAttachment;
 import com.bconlon.vanillaequals.attachment.MobVariantAttachment;
 import com.bconlon.vanillaequals.entity.Variant;
 import com.bconlon.vanillaequals.entity.VariantGroupData;
 import com.bconlon.vanillaequals.entity.passive.variant.VariantFunctions;
 import com.bconlon.vanillaequals.network.packet.clientbound.SetVariantPacket;
+import com.bconlon.vanillaequals.network.packet.clientbound.SyncLivestockAttachmentPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.EatBlockGoal;
+import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class EntityHooks {
+    public static void addGoals(Entity entity) {
+        LivestockAttachment attachment = entity.getData(EqualsAttachments.LIVESTOCK);
+        if (entity instanceof Mob mob && (mob.getClass() == Cow.class || mob.getClass() == Pig.class || mob.getClass() == Chicken.class)) {
+            EatBlockGoal eatBlockGoal = new EatBlockGoal(mob);
+            attachment.setEatBlockGoal(eatBlockGoal);
+            mob.goalSelector.addGoal(5, eatBlockGoal);
+        }
+    }
+
     public static SpawnGroupData chooseMobVariant(Mob mob, ServerLevelAccessor level, double x, double y, double z, MobSpawnType spawnType, SpawnGroupData spawnGroupData) {
         if (spawnType == MobSpawnType.NATURAL || spawnType == MobSpawnType.CHUNK_GENERATION) {
             MobVariantAttachment attachment = mob.getData(EqualsAttachments.MOB_VARIANT);
@@ -63,5 +80,10 @@ public class EntityHooks {
         if (variant != null) {
             PacketDistributor.sendToAllPlayers(packet);
         }
+    }
+
+    public static void syncLivestockData(Player player, Entity entity) {
+        LivestockAttachment attachment = entity.getData(EqualsAttachments.LIVESTOCK);
+        PacketDistributor.sendToPlayer((ServerPlayer) player, new SyncLivestockAttachmentPacket(entity.getId(), attachment));
     }
 }

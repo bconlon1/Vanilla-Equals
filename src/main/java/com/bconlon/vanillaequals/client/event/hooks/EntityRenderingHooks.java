@@ -6,8 +6,8 @@ import com.bconlon.vanillaequals.client.renderer.EqualsModelLayers;
 import com.bconlon.vanillaequals.client.renderer.ModelTypeChoice;
 import com.bconlon.vanillaequals.client.renderer.entity.model.DetailedCowModel;
 import com.bconlon.vanillaequals.entity.Variant;
-import com.bconlon.vanillaequals.entity.passive.variant.CowVariant;
-import com.bconlon.vanillaequals.mixin.mixins.client.accessors.LivingEntityRendererAccessor;
+import com.bconlon.vanillaequals.entity.passive.variant.VariantFunctions;
+import com.bconlon.vanillaequals.mixin.mixins.client.accessor.LivingEntityRendererAccessor;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -29,9 +29,9 @@ public class EntityRenderingHooks {
         MobVariantAttachment attachment = entity.getData(EqualsAttachments.MOB_VARIANT);
         Variant variant = null;
         M model = null;
-        if (entity.getType() == EntityType.COW) {
-            variant = attachment.getVariant(CowVariant.GET);
-            model = (M) MODEL_CHOICES.get(EntityType.COW).choose(variant.getModelType());
+        if (MODEL_CHOICES.containsKey(entity.getType()) && VariantFunctions.VARIANT_FUNCTIONS.containsKey(entity.getType())) {
+            variant = attachment.getVariant(VariantFunctions.VARIANT_FUNCTIONS.get(entity.getType()).variantGetter());
+            model = (M) MODEL_CHOICES.get(entity.getType()).choose(variant.getModelType());
         }
         if (variant != null && model != null) {
             rendererAccessor.vanilla_equals$setModel(model);
