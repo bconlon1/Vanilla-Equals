@@ -1,5 +1,6 @@
 package com.bconlon.vanillaequals.data.generators;
 
+import com.bconlon.vanillaequals.blocks.EqualsBlocks;
 import com.bconlon.vanillaequals.data.providers.EqualsLanguageProvider;
 import com.bconlon.vanillaequals.item.EqualsItems;
 import net.minecraft.data.PackOutput;
@@ -11,6 +12,9 @@ public class EqualsLanguageData extends EqualsLanguageProvider {
 
     @Override
     protected void addTranslations() {
+        // Blocks
+        this.addBlock(EqualsBlocks.BUTTERCUP, "Buttercup");
+
         // Items
         this.addItem(EqualsItems.AMBER_CHICKEN_SPAWN_EGG, "Amber Chicken Spawn Egg");
         this.addItem(EqualsItems.BRONZED_CHICKEN_SPAWN_EGG, "Bronzed Chicken Spawn Egg");

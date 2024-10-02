@@ -1,5 +1,6 @@
 package com.bconlon.vanillaequals.data.generators;
 
+import com.bconlon.vanillaequals.blocks.EqualsBlocks;
 import com.bconlon.vanillaequals.data.providers.EqualsItemModelProvider;
 import com.bconlon.vanillaequals.item.EqualsItems;
 import net.minecraft.data.PackOutput;
@@ -12,6 +13,8 @@ public class EqualsItemModelData extends EqualsItemModelProvider {
 
     @Override
     protected void registerModels() {
+        this.itemBlockFlat(EqualsBlocks.BUTTERCUP.get());
+
         this.eggItem(EqualsItems.AMBER_CHICKEN_SPAWN_EGG.get());
         this.eggItem(EqualsItems.BRONZED_CHICKEN_SPAWN_EGG.get());
         this.eggItem(EqualsItems.GOLD_CRESTED_CHICKEN_SPAWN_EGG.get());

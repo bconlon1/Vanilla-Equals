@@ -1,9 +1,7 @@
 package com.bconlon.vanillaequals.data;
 
-import com.bconlon.vanillaequals.data.generators.EqualsItemModelData;
-import com.bconlon.vanillaequals.data.generators.EqualsLanguageData;
-import com.bconlon.vanillaequals.data.generators.tags.EqualsBiomeTagData;
-import com.bconlon.vanillaequals.data.generators.tags.EqualsPaintingVariantTagData;
+import com.bconlon.vanillaequals.data.generators.*;
+import com.bconlon.vanillaequals.data.generators.tags.*;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -13,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.util.InclusiveRange;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -27,13 +26,26 @@ public class EqualsData {
         PackOutput packOutput = generator.getPackOutput();
 
         // Client Data
+        generator.addProvider(event.includeClient(), new EqualsBlockStateData(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new EqualsItemModelData(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new EqualsLanguageData(packOutput));
 
         // Server Data
+        DatapackBuiltinEntriesProvider registrySets = new EqualsRegistrySets(packOutput, lookupProvider);
+        CompletableFuture<HolderLookup.Provider> registryProvider = registrySets.getRegistryProvider();
+        generator.addProvider(event.includeServer(), registrySets);
+        generator.addProvider(event.includeServer(), new EqualsRecipeData(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), EqualsLootTableData.create(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new EqualsLootModifierData(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new EqualsDataMapData(packOutput, lookupProvider));
+
         // Tags
+        EqualsBlockTagData blockTags = new EqualsBlockTagData(packOutput, lookupProvider, fileHelper);
+        generator.addProvider(event.includeServer(), blockTags);
+        generator.addProvider(event.includeServer(), new EqualsItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
         generator.addProvider(event.includeServer(), new EqualsBiomeTagData(packOutput, lookupProvider, fileHelper));
         generator.addProvider(event.includeServer(), new EqualsPaintingVariantTagData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new EqualsDamageTypeTagData(packOutput, registryProvider, fileHelper));
 
         // pack.mcmeta
         generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(
